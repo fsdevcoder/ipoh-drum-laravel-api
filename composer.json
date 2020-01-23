@@ -1,0 +1,72 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The Laravel Framework.",
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.2",
+        "cartalyst/stripe-laravel": "^11.0",
+        "darkaonline/l5-swagger": "^6.0",
+        "fideloper/proxy": "^4.0",
+        "filp/whoops": "^2.5",
+        "guzzlehttp/guzzle": "^6.5",
+        "jrm2k6/cloudder": "0.4.*",
+        "laravel/cashier": "^10.5",
+        "laravel/framework": "^6.0",
+        "laravel/passport": "^7.5",
+        "laravel/telescope": "^2.1",
+        "laravel/tinker": "^1.0",
+        "spatie/laravel-cors": "^1.6",
+        "vimeo/laravel": "^5.4"
+    },
+    "require-dev": {
+        "facade/ignition": "^1.4",
+        "fzaninotto/faker": "^1.4",
+        "laravel/ui": "^1.1",
+        "mockery/mockery": "^1.0",
+        "nunomaduro/collision": "^3.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    }
+}

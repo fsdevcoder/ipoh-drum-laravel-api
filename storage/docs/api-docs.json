@@ -1,0 +1,344 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Ipoh Drum Laravel API",
+        "description": "This is a swagger-generated API documentation for the project Ipoh Drum.",
+        "contact": {
+            "email": "henry_lcz97@hotmail.com"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8000",
+    "basePath": "/api",
+    "paths": {
+        "/sale": {
+            "get": {
+                "tags": [
+                    "SaleControllerService"
+                ],
+                "summary": "List of sales",
+                "operationId": "getListOfSales",
+                "responses": {
+                    "200": {
+                        "description": "A list of sales."
+                    },
+                    "default": {
+                        "description": "Unable to retrieve list of sales."
+                    }
+                }
+            }
+        },
+        "/user": {
+            "get": {
+                "tags": [
+                    "UserControllerService"
+                ],
+                "summary": "Retrieve list of users",
+                "operationId": "getListOfUsers",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved list of users."
+                    },
+                    "default": {
+                        "description": "Unable to retrieve list of users."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "UserControllerService"
+                ],
+                "summary": "Creates a user.",
+                "operationId": "createUser",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Username",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Email",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "Password",
+                        "required": true,
+                        "type": "string",
+                        "format": "password"
+                    },
+                    {
+                        "name": "password_confirmation",
+                        "in": "query",
+                        "description": "Password Confirmation",
+                        "required": true,
+                        "type": "string",
+                        "format": "password"
+                    },
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "description": "Country Name",
+                        "required": false,
+                        "type": "string",
+                        "allowEmptyValue": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User has been created successfully."
+                    },
+                    "default": {
+                        "description": "Unable to create the user."
+                    }
+                }
+            }
+        },
+        "/user/{uid}": {
+            "get": {
+                "tags": [
+                    "UserControllerService"
+                ],
+                "summary": "Retrieves user by userId.",
+                "operationId": "getUserByUserId",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "path",
+                        "description": "User ID, NOT 'ID'.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User has been retrieved successfully."
+                    },
+                    "default": {
+                        "description": "Unable to retrieve the user."
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "UserControllerService"
+                ],
+                "summary": "Update user by userId.",
+                "operationId": "updateUserByUserId",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "path",
+                        "description": "User ID, NOT 'ID'.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Username.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "Email.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "tel1",
+                        "in": "query",
+                        "description": "Telephone Number #1.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "address1",
+                        "in": "query",
+                        "description": "Address #1.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "description": "City.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "postcode",
+                        "in": "query",
+                        "description": "PostCode.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "description": "State.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "country",
+                        "in": "query",
+                        "description": "Country.",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User has been updated successfully."
+                    },
+                    "default": {
+                        "description": "Unable to update the user."
+                    }
+                }
+            }
+        },
+        "/authentication": {
+            "post": {
+                "tags": [
+                    "UserControllerService"
+                ],
+                "summary": "Authenticate user",
+                "operationId": "authenticateUser",
+                "responses": {
+                    "200": {
+                        "description": "Successfully authenticated user."
+                    },
+                    "default": {
+                        "description": "Unable to authenticate the user."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Sale": {
+            "title": "Sale"
+        },
+        "User": {
+            "properties": {
+                "id": {
+                    "description": "",
+                    "type": "integer"
+                },
+                "role_id": {
+                    "description": "",
+                    "type": "integer"
+                },
+                "uid": {
+                    "description": "",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "",
+                    "type": "string",
+                    "example": "nameeeeefedsf"
+                },
+                "email": {
+                    "description": "",
+                    "type": "string"
+                },
+                "icno": {
+                    "description": "",
+                    "type": "string"
+                },
+                "tel1": {
+                    "description": "",
+                    "type": "string"
+                },
+                "tel2": {
+                    "description": "",
+                    "type": "string"
+                },
+                "address1": {
+                    "description": "",
+                    "type": "string"
+                },
+                "address2": {
+                    "description": "",
+                    "type": "string"
+                },
+                "postcode": {
+                    "description": "",
+                    "type": "string"
+                },
+                "city": {
+                    "description": "",
+                    "type": "string"
+                },
+                "state": {
+                    "description": "",
+                    "type": "string"
+                },
+                "country": {
+                    "description": "",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "",
+                    "type": "boolean"
+                },
+                "last_login": {
+                    "description": "",
+                    "type": "string"
+                },
+                "last_active": {
+                    "description": "",
+                    "type": "string"
+                },
+                "lastedit_by": {
+                    "description": "",
+                    "type": "string"
+                },
+                "remember_token": {
+                    "description": "",
+                    "type": "string"
+                },
+                "created_at": {
+                    "description": "",
+                    "type": "string"
+                },
+                "updated_at": {
+                    "description": "",
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "xml": {
+                "name": "User"
+            }
+        }
+    }
+}
